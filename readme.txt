@@ -27,7 +27,7 @@ openssl.cafile="C:/Program Files/PHP/v7.0/extras/ssl/cacert.pem"
 I chose php because I am familiar with it and the documentation I could find used php example.  If I found a javascript call,
  I would have ajax and jquery to fetch the stream.  
 my php installation is on a windows 10 laptop so one should have IIS and wamp installed and running.  
-if the twitter app directory is used in a wwwroot directory then all that needs to be done to run the search is "locahost/twitterfetch" 
+if the twitter app directory is used in a wwwroot directory then all that needs to be done to run the search is "locahost/twitterfetchapp" 
 Note: at this time input of user name only searches my key account for tweets from that user.  I may at a later date add the user
 history option to retrieve tweets from the user inputed.
  I have added error messaging for checking for needed parameters, invalid address location and invalid name. 
