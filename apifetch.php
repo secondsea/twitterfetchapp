@@ -20,7 +20,7 @@ class api {
 
 	public function emptycheck()
 	{
-	//	$this->errflags= array();
+		$this->errflags= array();
 		$fields = array('tweettext','username','location');
 		$this->fillcount=0;
 		foreach($fields as $field)
