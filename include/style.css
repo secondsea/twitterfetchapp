@@ -3,10 +3,53 @@ body {
 	font-size: 10pt;
 	font-weight: normal;}
 	
-.err {
+input.err[type=text], textarea {
 		
-color: red;
+  -webkit-transition: all 0.30s ease-in-out;
+  -moz-transition: all 0.30s ease-in-out;
+  -ms-transition: all 0.30s ease-in-out;
+  -o-transition: all 0.30s ease-in-out;
+  outline: none;
+  padding: 3px 0px 3px 3px;
+  margin: 5px 1px 3px 0px;
+  border: 1px solid #e82b1e;
+   box-shadow: 0 0 5px rgba(232, 43, 30, 1);
+  padding: 3px 0px 3px 3px;
+  margin: 5px 1px 3px 0px;
+  border: 1px solid rgba(232, 43, 30, 1);
 	}
+	
+		input.err[type=text]:focus, textarea:focus {
+ 
+}
+	
+	
+	
+	
+input[type=text], textarea {
+  -webkit-transition: all 0.30s ease-in-out;
+  -moz-transition: all 0.30s ease-in-out;
+  -ms-transition: all 0.30s ease-in-out;
+  -o-transition: all 0.30s ease-in-out;
+  outline: none;
+  padding: 3px 0px 3px 3px;
+  margin: 5px 1px 3px 0px;
+  border: 1px solid #DDDDDD;
+}
+	
+	input[type=text]:focus, textarea:focus {
+  box-shadow: 0 0 5px rgba(81, 203, 238, 1);
+  padding: 3px 0px 3px 3px;
+  margin: 5px 1px 3px 0px;
+  border: 1px solid rgba(81, 203, 238, 1);
+}
+	
+	
+	
+	
+	
+	
+	
 	
 #twitform {
 	width: 500px;
@@ -24,6 +67,10 @@ color: red;
 	
     }
 	
+	li {list-style-type:none;}
+	
+	.hidden { visibility: hidden; }
+.unhidden { visibility: visible; } 
 	
 	label {
   float:left;
@@ -38,7 +85,12 @@ color: red;
   
 }
 
-.class { color:red}
+
+[draggable]
+{
+	user-select: none;
+}
+.error { color:red}
 
 div[id^="tweet"]{
 
@@ -46,7 +98,7 @@ div[id^="tweet"]{
 			margin: 20px;
 			padding: 10px 20px;
 			overflow: hidden;
-			width: 80%;
+			width: 60%;
 
 			  background-image: -moz-linear-gradient(top, #f6f2ec, #e2dbce); /* FF3.6 */
 			  background-image: -webkit-gradient(linear,left top,left bottom,color-stop(0, #f6f2ec),color-stop(1, #e2dbce)); /* Saf4+, Chrome */

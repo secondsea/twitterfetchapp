@@ -1,8 +1,7 @@
 
 The file that is needed is the keys.php file.
 Please email me for the missing file.
-mary.theresa.cusack.gmail.com
-you put this file in the include directory.
+
 for Konica exercise you will recieve my keys.
 for anyone else unothorized I will omit them so you can insert your own
 
@@ -30,6 +29,9 @@ my php installation is on a windows 10 laptop so one should have IIS and wamp in
 if the twitter app directory is used in a wwwroot directory then all that needs to be done to run the search is "locahost/twitterfetchapp" 
 Note: at this time input of user name only searches my key account for tweets from that user.  I may at a later date add the user
 history option to retrieve tweets from the user inputed.
+
+06/05/2018
+Added Drag and drop to tweets and hide and unhid capability
  I have added error messaging for checking for needed parameters, invalid address location and invalid name. 
  If there are not tweets on the timeline for the specified user the response should inform the user.
 

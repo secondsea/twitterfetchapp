@@ -20,7 +20,7 @@ class api {
 
 	public function emptycheck()
 	{
-		$this->errflags= array();
+	//	$this->errflags= array();
 		$fields = array('tweettext','username','location');
 		$this->fillcount=0;
 		foreach($fields as $field)
@@ -30,11 +30,23 @@ class api {
 			$this->fillcount++;
 			}
 		}
+	
+	//}
 		if ($this->fillcount==0)
 		{
 			$this->errflags["nofields"]="err";
+			 if (!empty($this->postarray['maxtweets']) )
+			{
+				$this->errflags["intalone"] ="err";
+			}
+		
 		} 
+		
+		
+		
+		
 	} // end emptycheck
+	
 
 		
 	
@@ -154,6 +166,7 @@ class api {
 		if(isset($this->errflags['namebogus'])) { echo "<p>User name invalid</p>";}
 		if(isset($this->errflags['noint'])) {echo "<p>Number of Max Tweets is not an integer</p>";}
 		if(isset($this->errflags['badloc'])) {echo "<p>Location invalid</p>";}
+		if(isset($this->errflags["intalone"] )){echo "<p>Max Tweets must be accoumpanied by another value";}
 		echo "</div>";
 	}
 		
@@ -174,6 +187,7 @@ class api {
 			<?php
 		}
 	 $idx=0;
+	 echo "<p>Drag tweets to rearrange order</p>";
 		foreach($string as $items)	
 		{
 			if (isset($item['retweeted_status']['entities']))
@@ -186,18 +200,23 @@ class api {
 			}
 			$idx++;
 			$tidx=0;
+	
 			foreach($items as $item)
 			{
 				if(isset( $item['text']))
 				{	
-			 ?>
-		<div id="tweet<?php echo $tidx; ?>" ><ul>
-				<li>Tweet:<?php echo $item['text'] ?></li>
-				<li>Time and Date of Tweet: <?php echo $item['created_at']?></li>
-				<li>Screen name: <?php echo  $item['user']['screen_name'] ;?></li>
-				<li>Location: <?php echo  $item['user']["location"];?> </li>
-				<li>Source:<?php  echo $item["source"]  ?></li>
-			</ul></div>		
+			 ?>   <a  id="toggle<?php echo $tidx; ?>" href="javascript:unhide('tweet<?php echo $tidx; ?>');">Hide</a> 
+		<div id="tweet<?php echo $tidx; ?>"draggable="true" 
+		ondragstart="dragStarted(event)"  
+		ondragover="draggingOver(event)" 
+		ondrop="dropped(event)">
+		
+			Tweet:<?php echo $item['text'] ?></br>
+			Time and Date of Tweet: <?php echo $item['created_at']?></br>
+			Screen name: <?php echo  $item['user']['screen_name'] ;?></br>
+			Location: <?php echo  $item['user']["location"];?> </br>
+			Source:<?php  echo $item["source"]  ?></br>
+			</div>		
 		 <?php
 					$tidx++;	
 					}  // end is text set
@@ -206,6 +225,7 @@ class api {
 	//		echo "<pre>";
 //print_r($string);
 //echo "</pre>";		
+
 		} // end list tweets
 	
 	
