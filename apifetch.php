@@ -190,6 +190,14 @@ class api {
 	 echo "<p>Drag tweets to rearrange order</p>";
 		foreach($string as $items)	
 		{
+			
+			//echo "<pre>";
+		//	print_r ($items);
+		//	echo "</pre>";
+			
+			
+			
+			
 			if (isset($item['retweeted_status']['entities']))
 			{
 				$is_rt = 1; // Set 1 if retweeted
@@ -203,14 +211,16 @@ class api {
 	
 			foreach($items as $item)
 			{
-				if(isset( $item['text']))
-				{	
-			 ?>   <a  id="toggle<?php echo $tidx; ?>" href="javascript:unhide('tweet<?php echo $tidx; ?>');">Hide</a> 
+				if (!isset($item['completed_in']))
+				{
+					if(isset( $item['text']))
+					{	
+			 ?>
+		 <a  id="toggle<?php echo $tidx; ?>" href="javascript:unhide('tweet<?php echo $tidx; ?>');">Hide</a> 
 		<div id="tweet<?php echo $tidx; ?>"draggable="true" 
 		ondragstart="dragStarted(event)"  
 		ondragover="draggingOver(event)" 
 		ondrop="dropped(event)">
-		
 			Tweet:<?php echo $item['text'] ?></br>
 			Time and Date of Tweet: <?php echo $item['created_at']?></br>
 			Screen name: <?php echo  $item['user']['screen_name'] ;?></br>
@@ -220,13 +230,14 @@ class api {
 		 <?php
 					$tidx++;	
 					}  // end is text set
-				} // end for each item
-			} // end for each string
+				}// end if completed_in not set
+			} // end for each item
+		} // end for each string
 	//		echo "<pre>";
 //print_r($string);
 //echo "</pre>";		
 
-		} // end list tweets
+	} // end list tweets
 	
 	
 	
